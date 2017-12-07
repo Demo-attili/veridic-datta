@@ -16,25 +16,29 @@ properties([
 ])
 
 pipeline {
-    agent any 
-
+    agent any
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'pwd' 
+        stage('Checkout') {
+            steps {
+                echo 'checkout step'
             }
         }
-        stage('Test'){
+		
+        stage('Build') {
             steps {
-                sh 'java -version'
+                
+                    echo 'Build step'
                 
             }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'ls'
-                sh 'pwd'
-            }
-        }
+       	   }
+		   
+       
+	   stage('Deploy'){
+	       steps {
+		   echo 'deploy step'
+	   }
+	   }
+	   
+	   
     }
 }
